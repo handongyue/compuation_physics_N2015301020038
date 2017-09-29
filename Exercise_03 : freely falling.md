@@ -23,18 +23,19 @@ t=[]#建立数组
 dt=0.01#定义dt
 t.append(0)    
 for i in range(1000):    
-    Nx=(40)*t   
-    tadd=t[i]+dt    
-    Number_x.append(Nx)    
-    t.append(tadd)#定义循环
-t_max=t[10]    
-pl.plot(t,Number_x,'x')    #绘制图像
+     tadd=t[i]+dt  
+     t.append(tadd) 
+     Nx=(40)*t
+     Number_x.append(Nx)  #定义循环
+t_max=t[-1]    
+pl.plot(t,Number_x)    #绘制图像
 pl.title('The position of an object moving ')    
 pl.xlabel('the time')    
 pl.ylabel('The displacement')    
+pl.xlim(0.00,t_max)    
+pl.ylim(Number_x[0])  
 pl.show()
 ```
-##Result
 
 
 
