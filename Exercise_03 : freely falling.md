@@ -13,7 +13,7 @@ function of time. Compare your result with the exact solution.
 采用for循环来达到这一个运算 以每一次的循环来输出当前的t值及对应的x值，并且用pylab绘制出x随t的变换的图像，设置
 循环次数为100次
 
-##Code
+## Code
 
 
 
