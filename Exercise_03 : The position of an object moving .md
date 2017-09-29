@@ -1,6 +1,6 @@
-# QUESTION 1
+# Exercise_03
 
-## The position of an object moving 
+## Question 
 
 the position of an object moving horizontally with a constant velocity,v,is described by the equation
 :<br/>  
