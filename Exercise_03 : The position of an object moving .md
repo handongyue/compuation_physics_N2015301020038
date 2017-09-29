@@ -19,16 +19,16 @@ function of time. Compare your result with the exact solution.
 import numpy as np    
 import pylab as pl 
 Number_x=[]    
-t=[]#建立数组   
-dt=0.01#定义dt
+t=[]   
+dt=0.01
 t.append(0)    
 for i in range(1000):    
      tadd=t[i]+dt  
      t.append(tadd) 
      Nx=(40)*t
-     Number_x.append(Nx)  #定义循环
+     Number_x.append(Nx)  
 t_max=t[-1]    
-pl.plot(t,Number_x)    #绘制图像
+pl.plot(t,Number_x)    
 pl.title('The position of an object moving ')    
 pl.xlabel('the time')    
 pl.ylabel('The displacement')    
