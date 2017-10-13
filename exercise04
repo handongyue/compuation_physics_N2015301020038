@@ -1,0 +1,178 @@
+# Problem
+
+标签（）： exercise
+
+---
+> * *QUESTION：*
+Calculate the trajectory of your cannon shell including both air drag and the Reduced air density at high altitudes so that you can reproduce the results in Figure2.5.Perform your calculation for different firing angles and determine the Value of the angle that gives the maximum range.
+
+
+
+> * *ANALYSIS*
+Formula：  $$x(i+1)=x(i)+v_{x}\Delta t$$
+           $$y(i+1)=y(i)+v_{y}\Delta t$$
+           $$v_{x}(i+1)=v_{x}(i)+\frac{F_{x}}{m} \Delta t $$
+           $$v_{y}(i+1)=v_{y}(i)+\frac{F_{y}-mg}{m} \Delta t $$
+           $$\rho=\rho(1-\frac{ay}{T_{0}}\Delta t)^{\alpha}$$
+           $$F^{*}=\frac{\rho}{\rho_{0}}F(y=0)$$
+           $$F^{*}=-\frac{B_{2}}{m}v^{2}(1-\frac{ay}{T_{0}})^{\alpha}$$
+     
+> * *CODE  1*   
+```python
+from pylab import *
+from math import *
+#initialize
+x=[0]
+y=[0]
+x1=[0]
+y1=[0]
+vx=[100]
+vy=[300]
+vx1=[100]
+vy1=[300]
+g=9.8
+b2m=4e-5
+a=6.5e-3
+t=100000
+dt=0.1
+T_0=288
+#calculate and plot
+for i in range(int(t/dt)):
+    c=sqrt(vx1[i]**2+vy1[i]**2)
+    p=(2.71828)**(-(y1[i]*0.00001))
+    f=b2m*c**2*p*(1-a*y1[i]/T_0)**2.5
+    theta_x=vx1[i]/c
+    theta_y=vy1[i]/c
+    v_x1=vx1[i]-f*theta_x*dt
+    v_y1=vy1[i]-f*theta_y*dt-g*dt
+    vx1.append(v_x1)
+    vy1.append(v_y1)
+    temp_x1=x1[i]+vx1[i]*dt
+    temp_y1=y1[i]+vy1[i]*dt
+    if y1[i]>=0:
+        x1.append(temp_x1)
+        y1.append(temp_y1)
+    else:
+        break
+plot(x1,y1,color='b',label="with altitude")
+for i in range(int(t/dt)):
+    v_x=vx[i]
+    v_y=vy[i]-g*dt
+    vx.append(v_x)
+    vy.append(v_y)
+    temp_x=x[i]+vx[i]*dt
+    temp_y=y[i]+vy[i]*dt
+    if y[i]>=0:
+        x.append(temp_x)
+        y.append(temp_y)
+    else:
+        break
+plot(x,y,color='g',label="without drag")
+grid(True)
+title('Cannon shell trajectory')
+xlabel('x(m)')
+ylabel('y(m)')
+xlim(0,7700)
+ylim(0,6000)
+legend(loc='upper right',frameon=False)
+show()
+```
+![show](https://github.com/handongyue/picture/blob/master/%E6%8A%9B%E7%89%A9%E7%BA%BF.png)
+
+
+
+> * *CODE   2*
+diffierent  angles
+```python
+from math import *
+from pylab import *
+
+g=9.8
+dt=0.1
+t=10000
+b2m=4e-5
+a=6.5e-3
+
+def cannon(vx,vy):
+    x=[0.]
+    y=[0.]
+    for i in range(int(t/dt)):
+        c=sqrt(vx[i]**2+vy[i]**2)
+        p=2.71828**(-(y[i])*0.00001)
+        f=b2m*c**2*p*(1-a*y[i]/288)**2.5
+        theta_x=vx[i]/c
+        theta_y=vy[i]/c
+        v_x=vx[i]-f*theta_x*dt
+        v_y=vy[i]-g*dt-f*theta_y*dt
+        vx.append(v_x)
+        vy.append(v_y)
+        x_temp=x[i]+vx[i]*dt
+        y_temp=y[i]+vy[i]*dt
+        if y[i]>=0:
+            x.append(x_temp)
+            y.append(y_temp)
+        else:
+            print(x[-1])
+            break
+    plot(x,y)
+
+for j in [30,35,40,45,50,55,60,70,75]:
+    theta=j*3.1415926/180
+    vx=[1000*cos(theta)]
+    vy=[1000*sin(theta)]
+    cannon(vx,vy)
+grid(True)
+title('Cannon shell trajectory')
+xlabel('x(m)')
+ylabel('y(m)')
+xlim(0,50000)
+ylim(0,30000)
+plot()
+show()
+
+```
+![show](https://github.com/handongyue/picture/blob/master/%E6%8A%9B%E7%89%A9%E7%BA%BF2.png)
+
+> * *PYGAME*
+```python
+background_image_filename = 'bg.jpg'
+sprite_image_filename = 'cannon.jpg'
+
+import pygame
+from pygame.locals import *
+from sys import exit
+from math import *
+
+g=25000
+
+pygame.init()
+
+screen = pygame.display.set_mode((1200, 600), 0, 32)
+pygame.display.set_caption("Hello, World!")
+
+background = pygame.image.load(background_image_filename).convert()
+sprite = pygame.image.load(sprite_image_filename).convert_alpha()
+
+clock = pygame.time.Clock()
+
+x, y = 0., 320.
+speed_x, speed_y = 50., -150.
+
+while True:
+
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            exit()
+
+    screen.blit(background, (0, 0))
+    screen.blit(sprite, (x, y))
+
+    time_passed = clock.tick(100)
+    time_passed_seconds = time_passed / 1000.0
+
+    x += speed_x * time_passed_seconds
+    y += speed_y * time_passed_seconds + (0.5*g*time_passed_seconds**2)
+
+    pygame.display.update()
+```
+
