@@ -9,4 +9,4 @@ __2015301020038__
 
 [Exercise_03:the position of an object moving](https://github.com/handongyue/compuation_physics_N2015301020038/blob/master/Exercise_03%20:%20The%20position%20of%20an%20object%20moving%20.md)
 
-[Exercise_04 cannon](https://www.zybuluo.com/mdeditor#full-reader)
+[Exercise_04 cannon](https://www.zybuluo.com/handongyue/note/882128)
