@@ -45,7 +45,6 @@ for i in range (int(t/dt)):
     b2m=0.0039+0.0058/(1+math.exp(v-vd)/delta)
     v_x=vx[i]-b2m*v*vx[i]*dt
     v_y=vy[i]-g*dt+s0m*w*vx[i]*dt
-
     vx.append(v_x)
     vy.append(v_y)
     temp_x = x[i] + vx[i] * dt
@@ -95,6 +94,5 @@ xlabel('x(m)')
 ylabel('y(m)')
 legend(loc='upper right',frameon=False)
 show()
-
 
 ![result](https://github.com/handongyue/compuation_physics_N2015301020038/upload)
