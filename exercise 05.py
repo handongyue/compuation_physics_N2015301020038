@@ -30,7 +30,7 @@ vx.append(vx0)
 x1=[0]
 y1=[]
 vx1=[]vy1=[0]
-!y1.append(y0)
+y1.append(y0)
 vx1.append(vx0)
 
 x2=[0]
