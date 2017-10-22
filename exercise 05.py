@@ -29,8 +29,7 @@ y.append(y0)
 vx.append(vx0)
 x1=[0]
 y1=[]
-vx1=[]
-vy1=[0]
+vx1=[]vy1=[0]
 !y1.append(y0)
 vx1.append(vx0)
 
@@ -98,4 +97,4 @@ legend(loc='upper right',frameon=False)
 show()
 
 
-![result] (https://github.com/handongyue/compuation_physics_N2015301020038/upload)
+![result](https://github.com/handongyue/compuation_physics_N2015301020038/upload)
