@@ -95,4 +95,4 @@ ylabel('y(m)')
 legend(loc='upper right',frameon=False)
 show()
 
-![result](https://github.com/handongyue/compuation_physics_N2015301020038/upload)
+![result]（https://github.com/handongyue/compuation_physics_N2015301020038/upload）
