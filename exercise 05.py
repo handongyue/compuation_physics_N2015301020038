@@ -31,7 +31,7 @@ x1=[0]
 y1=[]
 vx1=[]
 vy1=[0]
-y1.append(y0)
+!y1.append(y0)
 vx1.append(vx0)
 
 x2=[0]
@@ -98,4 +98,4 @@ legend(loc='upper right',frameon=False)
 show()
 
 
-[result]
+![result] (https://github.com/handongyue/compuation_physics_N2015301020038/upload)
