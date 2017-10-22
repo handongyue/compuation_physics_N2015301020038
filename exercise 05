@@ -1,4 +1,4 @@
-'''python
+```python
 import math
 from math import *
 from pylab import *
@@ -90,6 +90,6 @@ xlabel('x(m)')
 ylabel('y(m)')
 legend(loc='upper right',frameon=False)
 show()
-'''
+```
 
 ![result]()
