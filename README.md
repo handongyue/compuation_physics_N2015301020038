@@ -15,4 +15,4 @@ __2015301020038__
 
 [Exercise_06 Non-linear oscillator](https://www.zybuluo.com/handongyue/note/939270)
 
-[Exercise_07 ](https://www.zybuluo.com/handongyue/note/939291)
+[Exercise_07 Strange attractor](https://www.zybuluo.com/handongyue/note/939291)
