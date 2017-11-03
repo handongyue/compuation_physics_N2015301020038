@@ -13,4 +13,4 @@ __2015301020038__
 
 [Exercise_05 backspin on a fastball](https://github.com/handongyue/compuation_physics_N2015301020038/blob/master/exercise%2005.py)
 
-[Exercise_06](https://www.zybuluo.com/handongyue/note/939270)
+[Exercise_06 Non-linear oscillator](https://www.zybuluo.com/handongyue/note/939270)
